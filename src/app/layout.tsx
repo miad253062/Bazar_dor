@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Noto_Sans_Bengali} from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import HeadLine from "./components/CategoryTab";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +33,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <Navbar/>
+        <Suspense fallback="loading...">
+          <HeadLine/>
+        </Suspense>
+        
         <main>{children}</main>
       </body>
     </html>
