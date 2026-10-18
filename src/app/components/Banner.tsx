@@ -16,7 +16,7 @@ function Banner() {
   }, []);
   return (
     <div className="m-5 border border-gray-200 p-4 rounded-2xl">
-      <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center">
         <div className="relative">
           <span className="px-2 py-1 text-green-700 bg-green-100 rounded-2xl">
             {time}

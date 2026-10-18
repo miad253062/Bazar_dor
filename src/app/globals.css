@@ -13,10 +13,10 @@ body {
   width: 100%;
 }
 .marquee-content {
-  display: inline-flex;
+  display: inline-block;
   animation: marquee 50s linear infinite;
 }
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
 }
