@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import HeadLine from "./components/CategoryTab";
 import { Suspense } from "react";
+import Marquee from "./components/Marquee";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Navbar/>
         <Suspense fallback="loading...">
           <HeadLine/>
+          <Marquee/>
         </Suspense>
         
         <main>{children}</main>

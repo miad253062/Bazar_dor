@@ -32,7 +32,7 @@ function Navbar () {
                     </Link>
                     <div className="flex items-center gap-4">
                         <Link href={'/sign-in'} className="active:scale-98">সাইন ইন</Link>
-                        <Link className="px-2 py-1 bg-green-700 text-white rounded-2xl hover:bg-green-800 active:scale-98" href={'/sign-up'}>সাইন আপ</Link>
+                        <Link className="px-3 py-1 bg-green-700 text-white rounded hover:bg-green-800 active:scale-98" href={'/sign-up'}>সাইন আপ</Link>
                     </div>
                 </div>  
             </nav>

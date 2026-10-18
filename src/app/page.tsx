@@ -1,6 +1,10 @@
+import Banner from "./components/Banner";
+
 function Home () {
     return (
-        <div>Hello world</div>
+        <div className="container mx-auto">
+            <Banner/>
+        </div>
     )
 }
 
