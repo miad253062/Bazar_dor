@@ -3,10 +3,9 @@ import { ProductType } from "../types/types";
 import Link from "next/link";
 
 async function Marquee () {
+    'use cache'
     const response = await fetch('https://openapi.programming-hero.com/api/bazardor/products')
     const data:ProductType[] = await response.json()
-
-    console.log(data)
     return (
         <div>
             <div className="marquee-container">

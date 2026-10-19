@@ -7,6 +7,7 @@ import { Suspense } from "react";
 import Marquee from "./components/Marquee";
 import CategoryTab from "./components/CategoryTab";
 import Footer from "./components/Footer";
+import ProductsContextProvider from "@/context/ProductsContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,14 +36,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${notoSensBengali.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar/>
-        <Suspense fallback="loading...">
-          <CategoryTab/>
-          <Marquee/>
-        </Suspense>
+        <ProductsContextProvider>
+          <Navbar/>
+          <Suspense fallback="loading...">
+            <CategoryTab/>
+            <Marquee/>
+          </Suspense>
+          
+          <main>{children}</main>
+          <Footer/>
+        </ProductsContextProvider>
         
-        <main>{children}</main>
-        <Footer/>
       </body>
     </html>
   );

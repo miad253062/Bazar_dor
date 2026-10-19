@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 function Banner() {
@@ -24,13 +23,11 @@ function Banner() {
           <h1 className="text-3xl font-bold md:text-4xl py-4">
             আজকের বাজারের দাম এক নজরে
           </h1>
-          <p className="md:text-xl text-gray-500">
+          <p className="md:text-xl text-gray-500 mb-5">
             চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম — বাজারভিত্তিক
             বিস্তারিত, গড়, সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।
           </p>
-          <Link href={"/#"}> 
-            <button className="text-white text-xl bg-green-700 active:scale-97 px-4 py-2 rounded-xl mt-4">সব পণ্য দেখুন</button>
-          </Link>
+          <a href="#allproduct" className="text-white text-xl bg-green-700 active:scale-97 px-4 py-2 rounded-xl">সব পণ্য দেখুন</a>
         </div>
         <div>
           <Image

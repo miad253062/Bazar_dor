@@ -17,6 +17,7 @@ const unitInBangla: Record<string, string> = {
 
 
 async function ProductDetails ({params}: ProductProps) {
+    'use cache'
     const {productId} = await params
     const response = await fetch(`https://openapi.programming-hero.com/api/bazardor/products/${productId}`)
     const data: ProductType = await response.json()

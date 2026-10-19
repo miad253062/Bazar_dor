@@ -3,6 +3,7 @@ import NavLink from "./Navlink"
 
 
 async function CategoryTab () {
+    'use cache'
 
     const response = await fetch('https://openapi.programming-hero.com/api/bazardor/categories')
     const data: CategoryType[] = await response.json()

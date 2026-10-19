@@ -1,8 +1,6 @@
-import Image from "next/image";
 import { ProductType } from "../types/types";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import Link from "next/link";
-import ItemCards from "./ItemCards";
 
 interface itemDataProp {
     itemData: ProductType
@@ -33,7 +31,7 @@ function ItemCard({itemData}: itemDataProp) {
                     
                     <div>
                         <p className="text-gray-500">আজকের দাম</p>
-                        <h1 className="text-2xl">{itemData.today.toLocaleString('bn-BD')} <span className="text-gray-500 text-xs">টাকা</span></h1>
+                        <h1 className="text-2xl font-semibold">{itemData.today.toLocaleString('bn-BD')} <span className="text-gray-500 text-xs">টাকা</span></h1>
                     </div>
                    <p
   className={`flex items-center rounded-xl text-xs absolute right-0 bottom-0 p-1 ${

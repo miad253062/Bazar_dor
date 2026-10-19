@@ -1,3 +1,7 @@
+import SortedProductSection from "@/app/components/SortedProductSection";
+import SortingSection from "@/app/components/SortingSection";
+import { ProductType } from "@/app/types/types";
+
 interface CategoryParamProps {
     params: {
         category: string
@@ -5,11 +9,32 @@ interface CategoryParamProps {
 }
 
 async function CategoryPage ({params}: CategoryParamProps) {
+    'use cache'
     const {category} = await params;
+    const response = await fetch(`https://openapi.programming-hero.com/api/bazardor/products?category=${category}`)
+    const data: ProductType[] = await response.json()
 
     return (
-        <div>
-            <h1>Category Page {category}</h1>
+        <div className="p-4">
+            <div className="container mx-auto">
+                <div className="flex items-center gap-2 border p-4 rounded-2xl border-gray-200 mt-10">
+                    <h1 className="text-4xl md:text-5xl">
+                        {
+                            data[0]?.categoryIcon
+                        }
+                    </h1>
+                    <div>
+                        <h1 className="text-3xl md:text-4xl font-semibold">{data[0]?.categoryNameBn}</h1>
+                        <p className="text-gray-500">{data.length.toLocaleString('bn-BD')}টি পণ্যের আজকের দাম ও পরিবর্তন</p>
+                    </div>
+                </div>
+                <div className="border mt-10 p-2 rounded-2xl border-gray-200">
+                        <SortingSection />        
+                </div>
+                <div className="border p-4 mt-10 rounded-2xl border-gray-200">
+                    <SortedProductSection allproduct={data}/>
+                </div>
+            </div>
         </div>
     )
 }
