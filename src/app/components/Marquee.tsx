@@ -13,7 +13,7 @@ async function Marquee () {
                 <div className="marquee-content">
                     <div className="flex items-center">
                         {
-                            data.map(item => <Link href={'/#'} className="flex items-center border border-gray-100 gap-2 px-2 py-1" key={item.id}>
+                            data.map(item => <Link href={`/products/${item.id}`} className="flex items-center border border-gray-100 gap-2 px-2 py-1" key={item.id}>
                                 <span>{item.image}</span>
                                 <p>{item.nameBn}</p>
                                 <p>{item.today.toLocaleString('bn-BD')} টাকা/কেজি</p>
@@ -30,7 +30,6 @@ async function Marquee () {
                             </Link>)
                         }
                     </div>
-                    
                 </div>
             </div>
         </div>

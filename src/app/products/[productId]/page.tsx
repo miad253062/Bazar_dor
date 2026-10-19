@@ -33,7 +33,7 @@ async function ProductDetails ({params}: ProductProps) {
                         <div>
                             <h1 className="font-bold text-2xl md:text-4xl">{data.nameBn}</h1>
                             <div>
-                                <p className="text-gray-500 text-xs">প্রতি কেজি · চাল</p>
+                                <p className="text-gray-500 text-xs">প্রতি {data.unit in unitInBangla? unitInBangla[data.unit]: data.unit} · {data.categoryNameBn}</p>
                                 <p className="text-gray-600">গতকালের তুলনায় আজ দাম {data.yesterday > data.today? "কমেছে" : data.yesterday < data.today ? 'বেড়েছে' : "অপরিবর্তিত রয়েছে"} · {Math.abs((data.yesterday-data.today)).toLocaleString('bn-BD')}টাকা</p>
                             </div>
                             
@@ -59,8 +59,62 @@ async function ProductDetails ({params}: ProductProps) {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className="mt-10">
+                    <h1 className="text-xl md:text-2xl font-semibold mb-5">দামের সারসংক্ষেপ</h1>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="p-4 border border-gray-200 rounded-2xl space-y-1">
+                            <p className="text-gray-700">সর্বনিম্ন দাম</p>
+                            <h1 className="text-2xl md:text-3xl text-green-600 font-semibold">{Math.min(... data.markets.map(item => item.min)).toLocaleString('bn-BD')} টাকা</h1>
+                            <p className="text-gray-700">সবচেয়ে কম দামের বাজার</p>
+                        </div>
+                        <div className="p-4 border border-gray-200 rounded-2xl space-y-1">
+                            <p className="text-gray-700">সর্বাধিক দাম</p>
+                            <h1 className="text-2xl md:text-3xl text-red-600 font-semibold">{Math.max(... data.markets.map(item => item.min)).toLocaleString('bn-BD')} টাকা</h1>
+                            <p className="text-gray-700">সবচেয়ে বেশি দামের বাজার</p>
+                        </div>
+                        <div className="p-4 border border-gray-200 rounded-2xl space-y-1">
+                            <p className="text-gray-700">গড় দাম</p>
+                            <h1 className="text-2xl md:text-3xl text-green-600 font-semibold">{Math.round((data.markets.map(item => item.min).reduce((acc, price) => acc + price, 0))/data.markets.length).toLocaleString('bn-BD')} টাকা</h1>
+                            <p className="text-gray-700">প্রতি {data.unit in unitInBangla? unitInBangla[data.unit]: data.unit}-এর হিসাবে</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="mt-10">
+                    <h1 className="text-xl md:text-2xl font-semibold">বাজারভিত্তিক আজকের দাম</h1>
+                    <div className="border border-gray-200 rounded-2xl mt-5">
+                        <table className="w-full border-collapse">
+                            <thead>
+                                <tr>
+                                <th className="p-3 text-left">বাজার</th>
+                                <th className="p-3 text-left">বিভাগ</th>
+                                <th className="p-3 text-right">সর্বনিম্ন</th>
+                                <th className="p-3 text-right">সর্বাধিক</th>
+                                <th className="p-3 text-right">গড়</th>
+                                </tr>
+                            </thead>
 
+                            <tbody>
+                                {data.markets.map((market, index) => (
+                                <tr
+                                    key={market.market}
+                                    className={index % 2 === 0 ? "bg-gray-50" : ""}
+                                >
+                                    <td className="border-t border-gray-200 p-3">{market.market}</td>
+                                    <td className="border-t border-gray-200 p-3">{market.division}</td>
+                                    <td className="border-t border-gray-200 p-3 text-right">
+                                    {market.min.toLocaleString('bn-BD')} টাকা
+                                    </td>
+                                    <td className="border-t border-gray-200 p-3 text-right">
+                                    {market.max.toLocaleString('bn-BD')} টাকা
+                                    </td>
+                                    <td className="border-t border-gray-200 p-3 text-right font-bold">
+                                    {((market.min + market.max) / 2).toLocaleString('bn-BD')} টাকা
+                                    </td>
+                                </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

@@ -6,6 +6,7 @@ import HeadLine from "./components/CategoryTab";
 import { Suspense } from "react";
 import Marquee from "./components/Marquee";
 import CategoryTab from "./components/CategoryTab";
+import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </Suspense>
         
         <main>{children}</main>
+        <Footer/>
       </body>
     </html>
   );
