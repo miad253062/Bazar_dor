@@ -8,6 +8,7 @@ import Marquee from "./components/Marquee";
 import CategoryTab from "./components/CategoryTab";
 import Footer from "./components/Footer";
 import ProductsContextProvider from "@/context/ProductsContext";
+import { ToastContainer } from "react-toastify";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="bn"
+      data-theme="light"
       className={`${geistSans.variable} ${geistMono.variable} ${notoSensBengali.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
@@ -46,7 +48,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <main>{children}</main>
           <Footer/>
         </ProductsContextProvider>
-        
+        <ToastContainer position="top-center" style={{ width: "200px", maxWidth: "90vw" }}/>
       </body>
     </html>
   );

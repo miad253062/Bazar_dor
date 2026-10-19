@@ -1,13 +1,20 @@
 import SortedProductSection from "@/app/components/SortedProductSection";
 import SortingSection from "@/app/components/SortingSection";
 import { ProductType } from "@/app/types/types";
+import { Suspense } from "react";
 
 interface CategoryParamProps {
-    params: {
-        category: string
-    }
+  params: Promise<{
+    category: string;
+  }>;
 }
-
+function Page({ params }: ProductProps) {
+  return (
+    <Suspense fallback={<div className="text-center"><span className="loading loading-spinner text-success"></span></div>}>
+      <CategoryPage params={params} />
+    </Suspense>
+  );
+}
 async function CategoryPage ({params}: CategoryParamProps) {
     'use cache'
     const {category} = await params;
@@ -39,4 +46,4 @@ async function CategoryPage ({params}: CategoryParamProps) {
     )
 }
 
-export default CategoryPage;
+export default Page;

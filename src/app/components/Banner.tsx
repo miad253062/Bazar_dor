@@ -27,7 +27,7 @@ function Banner() {
             চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম — বাজারভিত্তিক
             বিস্তারিত, গড়, সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।
           </p>
-          <a href="#allproduct" className="text-white text-xl bg-green-700 active:scale-97 px-4 py-2 rounded-xl">সব পণ্য দেখুন</a>
+          <a href="#allproduct" className="text-white text-xl bg-green-700 hover:bg-green-800 px-4 py-2 rounded-xl">সব পণ্য দেখুন</a>
         </div>
         <div>
           <Image

@@ -1,13 +1,13 @@
 import { ProductType } from "@/app/types/types";
 import Link from "next/link";
+import { Suspense } from "react";
 import { FaAngleRight, FaCaretDown, FaCaretUp } from "react-icons/fa";
 
 interface ProductProps {
-    params: {
-        productId: string
-    }
+  params: Promise<{
+    productId: string;
+  }>;
 }
-
 const unitInBangla: Record<string, string> = {
   kg: "কেজি",
   litre: "লিটার",
@@ -16,8 +16,16 @@ const unitInBangla: Record<string, string> = {
 };
 
 
+function Page({ params }: ProductProps) {
+  return (
+    <Suspense fallback={<div className="text-center"><span className="loading loading-spinner text-success"></span></div>}>
+      <ProductDetails params={params} />
+    </Suspense>
+  );
+}
+
+
 async function ProductDetails ({params}: ProductProps) {
-    'use cache'
     const {productId} = await params
     const response = await fetch(`https://openapi.programming-hero.com/api/bazardor/products/${productId}`)
     const data: ProductType = await response.json()
@@ -122,4 +130,4 @@ async function ProductDetails ({params}: ProductProps) {
     )
 }
 
-export default ProductDetails;
+export default Page;
