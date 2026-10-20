@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 বাজার দর (BazarDor)
 
-## Getting Started
+**Empowering consumers with transparent, real-time daily commodity market prices.**
 
-First, run the development server:
+## 📖 About The Project
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**বাজার দর (BazarDor)** is a modern web application designed to bring transparency and clarity to daily essential commodity pricing (rice, lentils, oil, vegetables, meat, spices, etc.). In local markets where prices fluctuate frequently, BazarDor serves as a centralized hub where users can check up-to-date market rates, compare price trends, and make informed purchasing decisions.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Technologies Used
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project is built using modern, efficient, and scalable web technologies:
 
-## Learn More
+* **Frontend:** Next.js / React, Tailwind CSS, React Toastify, Daisy UI, React Icon
+* **Programming Language:** JavaScript(TypeScript)
+* **Authentication:** BetterAuth
+* **Database:** MongoDB
+* **State Management:** React Context API
+* **Deployment:** Vercel
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ✨ Key Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **📊 Real-Time Price Tracking & Updates**
+   - Access up-to-date daily market rates for essential food items and household goods categorized neatly for quick browsing.
 
-## Deploy on Vercel
+2. **📈 Price Comparison & Trend Analysis**
+   - Compare current prices with historical data or across different local bazaars to identify the best value and avoid overpaying.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **📂 Category-Based Organization**
+   - Filter and display items neatly under distinct categories (e.g., Groceries, Vegetables, Fish & Meat).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **📋 Update Information Feature**
+   - User Can Update His/Her Name.
+
+5. **📱 Responsive & Mobile-First UI**
+   - Designed with a clean, intuitive, and lightning-fast interface optimized for seamless usage directly from smartphones while shopping at the market.
