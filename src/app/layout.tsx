@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Sans_Bengali} from "next/font/google";
+import { Geist, Geist_Mono, Noto_Sans_Bengali } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import HeadLine from "./components/CategoryTab";
@@ -39,16 +39,25 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <ProductsContextProvider>
-          <Navbar/>
-          <Suspense fallback="loading...">
-            <CategoryTab/>
-            <Marquee/>
+          <Navbar />
+          <Suspense
+            fallback={
+              <div className="flex min-h-24 items-center justify-center">
+                <span className="loading loading-dots loading-md text-success" />
+              </div>
+            }
+          >
+            <CategoryTab />
+            <Marquee />
           </Suspense>
-          
+
           <main>{children}</main>
-          <Footer/>
+          <Footer />
         </ProductsContextProvider>
-        <ToastContainer position="top-center" style={{ width: "200px", maxWidth: "90vw" }}/>
+        <ToastContainer
+          position="top-center"
+          style={{ width: "200px", maxWidth: "90vw" }}
+        />
       </body>
     </html>
   );

@@ -60,7 +60,7 @@ function Navbar () {
                                         >
                                             <li className="font-semibold">{data?.user.name}</li>
                                             <li className="text-xs text-gray-500">{data?.user.email}</li>
-                                            <li><Link href={'/#'}><IoPersonSharp />আমার প্রোফাইল</Link></li>
+                                            <li><Link href={'/profile'}><IoPersonSharp />আমার প্রোফাইল</Link></li>
                                             <li><button onClick={handleSignOut} className="text-red-600"><VscSignOut />সাইন আউট</button></li>
                                         </ul>
                                         </div>

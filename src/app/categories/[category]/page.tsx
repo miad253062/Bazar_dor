@@ -8,7 +8,7 @@ interface CategoryParamProps {
     category: string;
   }>;
 }
-function Page({ params }: ProductProps) {
+function Page({ params }: CategoryParamProps) {
   return (
     <Suspense fallback={<div className="text-center"><span className="loading loading-spinner text-success"></span></div>}>
       <CategoryPage params={params} />
@@ -20,6 +20,7 @@ async function CategoryPage ({params}: CategoryParamProps) {
     const {category} = await params;
     const response = await fetch(`https://openapi.programming-hero.com/api/bazardor/products?category=${category}`)
     const data: ProductType[] = await response.json()
+    
 
     return (
         <div className="p-4">
